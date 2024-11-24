@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יצחק & דיני</title>
+    <style>
+        body {
+            font-family: Palace Script MT;
+            font-size: 1.5em;
+            background-image: url("mazal - tov (7).gif");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: 0px;
+            background-size: cover;
+            color: black;
+        }
+
+        #countdown-container {
+            text-align: center;
+            margin-top: 0%;
+        }
+
+        #countdown {
+            font-size: 4em;
+            margin-top: 350px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="countdown-container">
+        <p id="countdown"></p>
+    </div>
+    <script>
+
+        function updateCountdown() {
+
+            var weddingDate = new Date('2025-02-06').getTime();
+            var now = new Date().getTime();
+            var timeLeft = weddingDate - now;
+
+            var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = "The wedding day will be in " + days + " days, " + hours + " hours, " +
+                minutes + " minutes, " + seconds + " seconds";
+
+            if (timeLeft < 0) {
+                document.getElementById('countdown').innerHTML = "The big day has arrived!!!!!!!!!!!!!";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
